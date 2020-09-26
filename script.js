@@ -26,7 +26,8 @@
   // (4) 윈도우높이의 10%~80% 사이에서 말풍선,이미지 호출 : step의 dataset의 index호출
   //(5) step의 dataset의 index 확인
   // (6) 스크롤에따라 이미지 호출하기  : 활성화된 이미지를 currentItem에 넣고, currentItem을 지우고, 다음 이미지를 호출함
-  // (7)  currentItem 첫image로 시작
+  // (7) 중복코딩 function으로 만듬
+  // (8)  currentItem 첫image로 시작
 
   window.addEventListener("scroll", () => {
     let step;
@@ -49,17 +50,25 @@
 
         // (6)
         if (currentItem) {
-          currentItem.classList.remove("visible");
+          inactivate();
         }
 
         currentItem = graphicElems[step.dataset.index];
-        currentItem.classList.add("visible");
+        activate();
       }
     }
   });
 
   // (7)
-  currentItem.classList.add("visible");
+  function activate() {
+    currentItem.classList.add("visible");
+  }
+  function inactivate() {
+    currentItem.classList.remove("visible");
+  }
+
+  // (8)
+  activate();
 
   //● js 03-21 새로고침하면 최상단 첫화면
 
