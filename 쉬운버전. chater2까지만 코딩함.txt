@@ -1,0 +1,8 @@
+<뺀 것들>
+
+
+  //●js 03-03 새가 움직임.특정 이미지내에서
+
+intersectionObserver
+
+active,inactive함수 정리
